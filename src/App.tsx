@@ -19,18 +19,26 @@ function App() {
       setHasError(true);
     }
   })
+
+  let animals =   [
+    { name: 'Aardvark', id: 0, },
+    { name: 'Kangaroo', id: 1, },
+    { name: 'Snake', id: 2, }
+  ];
   
   let list = useListData({
-    initialItems: [
-      { name: 'Aardvark', id: 0, },
-      { name: 'Kangaroo', id: 1, },
-      { name: 'Snake', id: 2, }
-    ],
+    initialItems: animals,
     initialSelectedKeys: ['Kangaroo'],
     getKey: (item) => item.name
   });
 
-  if (!list) {
+  let history = useListData({
+    initialItems: animals,
+    initialSelectedKeys: ['Kangaroo'],
+    getKey: (item) => item.name
+  });
+
+  if (!list || !history) {
     setHasError(true);
   } else {
     function removeAnimal(name: Key) {
@@ -38,6 +46,7 @@ function App() {
     }
     function addAnimal(name: addAnimalFunction) {
       list.append(name);
+      history.append(name);
     }
     // something happened during fetch, lets render some nice error screen
     if (hasError) {
@@ -53,7 +62,7 @@ function App() {
         <>
           <div className={'bg-gray-600 text-violet-200 flex'}>
             <ListDisplay ListData={list} onPressFunc={removeAnimal} />
-            <ListHistory ListData={list} onPressFunc={removeAnimal} />
+            <ListHistory ListData={history} onPressFunc={removeAnimal} />
             <ListEditor ListData={list} onPressFunc={addAnimal} />
           </div>
         </>
