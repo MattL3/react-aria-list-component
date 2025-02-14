@@ -30,32 +30,36 @@ function App() {
     getKey: (item) => item.name
   });
 
-  function removeAnimal(name: Key) {
-    list.remove(name);
-  }
-  function addAnimal(name: addAnimalFunction) {
-    list.append(name);
-  }
-
-  // something happened during fetch, lets render some nice error screen
-  if (hasError) {
-    return (
-      <>
-        <div className={customClassName001}>
-          <ErrorDisplay/>
-        </div>
-      </>
-    )
+  if (!list) {
+    setHasError(true);
   } else {
-    return (
-      <>
-        <div className={customClassName001}>
-          <ListDisplay ListData={list} onPressFunc={removeAnimal} />
-          <ListHistory ListData={list} onPressFunc={removeAnimal} />
-          <ListEditor ListData={list} onPressFunc={addAnimal} />
-        </div>
-      </>
-    )
+    function removeAnimal(name: Key) {
+      list.remove(name);
+    }
+    function addAnimal(name: addAnimalFunction) {
+      list.append(name);
+    }
+
+    // something happened during fetch, lets render some nice error screen
+    if (hasError) {
+      return (
+        <>
+          <div className={customClassName001}>
+            <ErrorDisplay />
+          </div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className={customClassName001}>
+            <ListDisplay ListData={list} onPressFunc={removeAnimal} />
+            <ListHistory ListData={list} onPressFunc={removeAnimal} />
+            <ListEditor ListData={list} onPressFunc={addAnimal} />
+          </div>
+        </>
+      )
+    }
   }
 }
 
