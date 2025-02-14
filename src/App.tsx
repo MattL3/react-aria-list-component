@@ -4,6 +4,7 @@ import './App.css';
 import ListDisplay from './components/listDisplay';
 import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
+import { Key, MyClassProps, formTempMemInterface } from './types';
 
   function App() {
   let list = useListData({
@@ -16,11 +17,11 @@ import ListHistory from './components/listHistory';
     getKey: (item) => item.name
   });
 
-  function removeAnimal(name:string) {
+  function removeAnimal(name:Key) {
     list.remove(name);
   }
 
-  function addAnimal(name:string) {
+  function addAnimal(name: formTempMemInterface) {
     list.append(name);
   }
 
@@ -32,7 +33,7 @@ import ListHistory from './components/listHistory';
 
       <ListDisplay list={list} removeAnimal={removeAnimal} />
       <ListHistory list={list} removeAnimal={removeAnimal} />
-      <ListEditor list={list} addAnimal={addAnimal} />
+      {/* <ListEditor list={list} addAnimal={addAnimal} /> */}
       </div>
     </>
   )

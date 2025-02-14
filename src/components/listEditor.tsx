@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Button, Cell, Form, Input, Label, Row, TextField } from 'react-aria-components';
+import { ListData, useListData } from 'react-stately';
+import { formTempMemInterface } from '../types';
 
 //Custom presets using tailwind class names across common usages
 const customClassName00 = 'flex text-blue-500 p-1 px-4';
@@ -9,14 +11,15 @@ const customClassName02 = 'flex text-blue-500 p-2';
 const customClassName03 = 'flex text-blue-500 p-2';
 const customClassName04 = 'flex text-blue-500 p-2';
 
-function ListEditor({ list, addAnimal }) {
-    let formTempMem = {
+function ListEditor( items: ListData<[string]>, addAnimal:Function ) {
+ 
+    let formTempMem: formTempMemInterface = {
         name: '',
         id: '',
     };
 
 
-    const setFormData = (val, field) => {
+    const setFormData = (val: string, field: string) => {
         console.log("setPropsArrStateCallback")
         let value = val;
 
@@ -32,22 +35,27 @@ function ListEditor({ list, addAnimal }) {
     };
 
     //Reduce later
-    const handleInputChange = (e, field) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
         console.log(e.target);
-        setFormData(e.target.value, 'name');
+        if(e.target != null){
+            setFormData(e.target.value, 'name');
+        }
     };
-    const handleInputChangeType = (e, field) => {
-        setFormData(e.target.value, 'id');
+    const handleInputChangeType = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
+        console.log(e.target);
+        if(e.target != null){
+            setFormData(e.target.value, 'id');
+        }
     };
 
-    const handleFormSubmit = (formTempMem) => {
+    const handleFormSubmit = (formTempMem: formTempMemInterface) => {
         addAnimal(formTempMem);
 
     }
 
   
 
-    if (!list) {
+    if (!items) {
         return (
             <>
                 <Row aria-label={'empty list row'}>
@@ -73,7 +81,7 @@ function ListEditor({ list, addAnimal }) {
                     <div>
                     <TextField className={customClassName00} aria-label={'text field: first name'}>
                         <Label className={customClassName00} aria-label={'text field: first name label element'}>First name</Label>
-                        <Input className={customClassName01}  aria-label={'Input field: enter first name here'} onChange={handleInputChange} />
+                        <Input className={customClassName01}  aria-label={'Input field: enter first name here'} onChange={handleInputChange} field={'f'}/>
                     </TextField>
                     </div>
                     <div>
