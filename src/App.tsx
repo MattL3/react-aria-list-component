@@ -1,8 +1,8 @@
 import React from 'react';
 import { ListData, useListData } from 'react-stately';
 import './App.css';
-import ListDisplay from './components/listDisplay';
-import ListEditor from './components/listEditor';
+// import ListDisplay from './components/listDisplay';
+// import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 import { Key, MyClassProps, formTempMemInterface } from './types';
 
@@ -17,6 +17,11 @@ import { Key, MyClassProps, formTempMemInterface } from './types';
     getKey: (item) => item.name
   });
 
+      let formTempMem: formTempMemInterface = {
+        name: '',
+        id: '',
+    };
+
   function removeAnimal(name:Key) {
     list.remove(name);
   }
@@ -24,15 +29,15 @@ import { Key, MyClassProps, formTempMemInterface } from './types';
   function addAnimal(name: formTempMemInterface) {
     list.append(name);
   }
-
+  console.log(list.items);
   const colors = {    black: "bg-black text-white",    blue: "bg-blue-500 text-white",    white: "bg-white text-black",  };
 
   return (
     <>
       <div className="flex flex-centertext-red-500">
 
-      <ListDisplay list={list} removeAnimal={removeAnimal} />
-      <ListHistory list={list} removeAnimal={removeAnimal} />
+      {/* <ListDisplay list={list} removeAnimal={removeAnimal} /> */}
+      <ListHistory name={'formTempMem'} id={'s'}/>
       {/* <ListEditor list={list} addAnimal={addAnimal} /> */}
       </div>
     </>
