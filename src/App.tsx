@@ -1,10 +1,10 @@
 import React from 'react';
 import { ListData, useListData } from 'react-stately';
 import './App.css';
-// import ListDisplay from './components/listDisplay';
-// import ListEditor from './components/listEditor';
+import ListDisplay from './components/listDisplay';
+import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
-import { Key, formTempMemInterface } from './types';
+import { addAnimalFunction, Key, formTempMemInterface, MyComponentProps, MyListData } from './types';
 
   function App() {
   let list = useListData({
@@ -25,19 +25,23 @@ import { Key, formTempMemInterface } from './types';
   function removeAnimal(name:Key) {
     list.remove(name);
   }
-
-  function addAnimal(name: formTempMemInterface) {
+  function addAnimal(name:addAnimalFunction) {
     list.append(name);
   }
+
+  // function addAnimal(ListData.ListData.items[0]: MyListData) {
+  //   let va = ListData.ListData.items[0]
+  //   list.append(va);
+  // }
   console.log(list.items);
 
   return (
     <>
       <div className="flex flex-centertext-red-500">
 
-      {/* <ListDisplay list={list} removeAnimal={removeAnimal} /> */}
+      <ListDisplay ListData={list} onPressFunc={removeAnimal}/>
       <ListHistory ListData={list} onPressFunc={removeAnimal}/>
-      {/* <ListEditor list={list} addAnimal={addAnimal} /> */}
+      <ListEditor ListData={list} onPressFunc={addAnimal} />
       </div>
     </>
   )
