@@ -1,16 +1,15 @@
 import React from 'react';
+import ErrorDisplay from './errorDisplay';
 import { Button, Cell, Label, ListBox, ListBoxItem, Row, } from 'react-aria-components';
 import { MyComponentProps } from '../types';
 
 
-const ListHistory: React.FC<MyComponentProps> = ({ListData, onPressFunc}) => {
+const ListHistory: React.FC<MyComponentProps> = ({ ListData, onPressFunc }) => {
     console.log(ListData);
     if (!ListData) {
         return (
             <>
-                <Row aria-label={'empty list row'}>
-                    <Cell aria-label={'empty list cell'}>"sorry, no props were found"</Cell>
-                </Row>
+                <ErrorDisplay />
             </>
         )
     } else {

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import ErrorDisplay from './errorDisplay';
 import { Button, Cell, Form, Input, Label, Row, TextField } from 'react-aria-components';
 import { Key, ListData, Selection, useListData } from 'react-stately';
 import { formTempMemInterface } from '../types';
@@ -119,9 +120,7 @@ const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
     if (!ListData) {
         return (
             <>
-                <Row aria-label={'empty list row'}>
-                    <Cell aria-label={'empty list cell'}>"sorry, no props were found"</Cell>
-                </Row>
+                <ErrorDisplay/>
             </>
         )
     } else {
