@@ -4,7 +4,7 @@ import './App.css';
 // import ListDisplay from './components/listDisplay';
 // import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
-import { Key, MyClassProps, formTempMemInterface } from './types';
+import { Key, formTempMemInterface } from './types';
 
   function App() {
   let list = useListData({
@@ -30,14 +30,13 @@ import { Key, MyClassProps, formTempMemInterface } from './types';
     list.append(name);
   }
   console.log(list.items);
-  const colors = {    black: "bg-black text-white",    blue: "bg-blue-500 text-white",    white: "bg-white text-black",  };
 
   return (
     <>
       <div className="flex flex-centertext-red-500">
 
       {/* <ListDisplay list={list} removeAnimal={removeAnimal} /> */}
-      <ListHistory name={'formTempMem'} id={'s'}/>
+      <ListHistory ListData={list} onPressFunc={removeAnimal}/>
       {/* <ListEditor list={list} addAnimal={addAnimal} /> */}
       </div>
     </>
