@@ -7,11 +7,7 @@ import { formTempMemInterface } from '../types';
 import { MyComponentProps, MyComponentPropsAdd, MyListData } from '../types';
 
 //Custom presets using tailwind class names across common usages
-const customClassName00 = 'flex text-blue-500 p-1 px-4';
-const customClassName01 = 'bg-blue-500 text-slate-950 rounded-md';
-const customClassName02 = 'flex text-blue-500 p-2';
-const customClassName03 = 'flex text-blue-500 p-2';
-const customClassName04 = 'flex text-blue-500 p-2';
+
 
 // function ListEditor( items: ListData<[string]>, addAnimal:Function ) {
 const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
@@ -125,10 +121,10 @@ const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
         )
     } else {
         return (
-            <>
-                <Label className={customClassName00} aria-label={'Editor list title'}>Edit list</Label>
+            <div className={'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-1/3 max-w-1/3'}>
+                <Label className={'m-1'} aria-label={'Editor list title'}>Edit list</Label>
                 <Form
-                    className="flex p-1"
+                    className="bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col "
                     aria-label={'Editor Form'}
                     onInvalid={(e) => {
                         e.preventDefault();
@@ -139,24 +135,24 @@ const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
                     }}
                 >
                     <div>
-                    <TextField className={customClassName00} aria-label={'text field: first name'}>
-                        <Label className={customClassName00} aria-label={'text field: first name label element'}>First name</Label>
-                        <Input className={customClassName01}  aria-label={'Input field: enter Name here'} onChange={handleInputChange} />
+                    <TextField className={'flex flex-nowrap flex-col rounded-md'} aria-label={'text field: first name'}>
+                        <Label className={'text'} aria-label={'text field: first name label element'}>First name</Label>
+                        <Input className={'rounded-md'}  aria-label={'Input field: enter Name here'} onChange={handleInputChange} />
                     </TextField>
                     </div>
                     <div>
-                    <TextField className={customClassName00} aria-label={'text field: ID '}>
-                        <Label className={customClassName00} aria-label={'text field: ID label element'}>ID</Label>
-                        <Input className={customClassName01}  aria-label={'Input field: enter id here'} onChange={handleInputChangeType} />
+                    <TextField className={'flex flex-nowrap flex-col'} aria-label={'text field: ID '}>
+                        <Label className={''} aria-label={'text field: ID label element'}>ID</Label>
+                        <Input className={''}  aria-label={'Input field: enter id here'} onChange={handleInputChangeType} />
                     </TextField>
                     </div>
 
 
-                    <Button className={'bg-blue-400 rounded-md px-3'}  type="submit"  aria-label={'Editor form submit button'}>
+                    <Button className={'bg-blue-400 rounded-lg px-3 my-2'}  type="submit"  aria-label={'Editor form submit button'}>
                         Submit
                     </Button>
                 </Form>
-            </>
+            </div>
         )
     }
 }

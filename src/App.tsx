@@ -7,7 +7,7 @@ import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 import { addAnimalFunction, Key, formTempMemInterface, MyComponentProps, MyListData } from './types';
 
-const customClassName001 = 'flex flex-center text-red-500';
+const AppClass = 'bg-';
 
 function App() {
   const [hasError, setHasError] = useState(false);
@@ -44,7 +44,7 @@ function App() {
     if (hasError) {
       return (
         <>
-          <div className={customClassName001}>
+          <div className={'bg-gray-600'}>
             <ErrorDisplay />
           </div>
         </>
@@ -52,7 +52,7 @@ function App() {
     } else {
       return (
         <>
-          <div className={customClassName001}>
+          <div className={'bg-gray-600 text-violet-200 flex'}>
             <ListDisplay ListData={list} onPressFunc={removeAnimal} />
             <ListHistory ListData={list} onPressFunc={removeAnimal} />
             <ListEditor ListData={list} onPressFunc={addAnimal} />

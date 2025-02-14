@@ -10,7 +10,6 @@ export interface addAnimalFunction {
     id: string,
 }
 
-
 export interface formTempMemInterface {
     name: string,
     id: string,
