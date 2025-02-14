@@ -6,7 +6,7 @@ import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 import { addAnimalFunction, Key, formTempMemInterface, MyComponentProps, MyListData } from './types';
 
-  function App() {
+function App() {
   let list = useListData({
     initialItems: [
       { name: 'Aardvark', id: '0', },
@@ -17,31 +17,22 @@ import { addAnimalFunction, Key, formTempMemInterface, MyComponentProps, MyListD
     getKey: (item) => item.name
   });
 
-      let formTempMem: formTempMemInterface = {
-        name: '',
-        id: '',
-    };
-
-  function removeAnimal(name:Key) {
+  function removeAnimal(name: Key) {
     list.remove(name);
   }
-  function addAnimal(name:addAnimalFunction) {
+  function addAnimal(name: addAnimalFunction) {
     list.append(name);
   }
 
-  // function addAnimal(ListData.ListData.items[0]: MyListData) {
-  //   let va = ListData.ListData.items[0]
-  //   list.append(va);
-  // }
   console.log(list.items);
+  const customClassName001 = 'flex flex-center text-red-500';
 
   return (
     <>
-      <div className="flex flex-centertext-red-500">
-
-      <ListDisplay ListData={list} onPressFunc={removeAnimal}/>
-      <ListHistory ListData={list} onPressFunc={removeAnimal}/>
-      <ListEditor ListData={list} onPressFunc={addAnimal} />
+      <div className={customClassName001}>
+        <ListDisplay ListData={list} onPressFunc={removeAnimal} />
+        <ListHistory ListData={list} onPressFunc={removeAnimal} />
+        <ListEditor ListData={list} onPressFunc={addAnimal} />
       </div>
     </>
   )

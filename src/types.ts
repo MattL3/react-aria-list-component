@@ -1,4 +1,5 @@
-import { ListData, useListData } from 'react-stately';
+import { ListData } from 'react-stately';
+
 ////Types
 export type Key = string | number;
 
@@ -15,7 +16,6 @@ export interface formTempMemInterface {
     id: string,
 }
 
-
 export interface MyComponentProps {
     ListData: ListData<{name: string, id: string,}>;
     onPressFunc(name: Key): void;
@@ -29,8 +29,6 @@ export interface MyComponentPropsAdd {
 export interface MyListData {
     ListData: ListData<{name: string, id: string,}>;
 }
-
-
 
 export interface removeAnimalFunction {
     name: 'string',
