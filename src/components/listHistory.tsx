@@ -1,7 +1,14 @@
-
+import React from 'react';
 import { Button, Cell, Label, ListBox, ListBoxItem, Row, } from 'react-aria-components';
+import { ListData, useListData } from 'react-stately';
+import { customList } from '../types';
 
-function ListHistory({ list, removeAnimal }) {
+
+    const arr: { name: string; age: number }[] = [
+        { name: 'Alice', age: 27 },
+      ];
+
+function ListHistory(list: customList[], removeAnimal :,) {
     console.log(list);
     if (!list) {
         return (

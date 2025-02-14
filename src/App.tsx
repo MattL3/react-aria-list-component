@@ -1,11 +1,11 @@
-import { React } from 'react';
-import { useListData } from 'react-stately';
+import React from 'react';
+import { ListData, useListData } from 'react-stately';
 import './App.css';
 import ListDisplay from './components/listDisplay';
 import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 
-function App() {
+  function App() {
   let list = useListData({
     initialItems: [
       { name: 'Aardvark', id: '0', },
@@ -16,11 +16,11 @@ function App() {
     getKey: (item) => item.name
   });
 
-  function removeAnimal(name) {
+  function removeAnimal(name:string) {
     list.remove(name);
   }
 
-  function addAnimal(name) {
+  function addAnimal(name:string) {
     list.append(name);
   }
 

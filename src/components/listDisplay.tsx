@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Button, Cell, Label, ListBox, ListBoxItem, Row } from 'react-aria-components';
 
 function ListDisplay({ list, removeAnimal }) {

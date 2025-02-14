@@ -1,5 +1,5 @@
 
-import { React } from 'react';
+import React from 'react';
 import { Button, Cell, Form, Input, Label, Row, TextField } from 'react-aria-components';
 
 //Custom presets using tailwind class names across common usages

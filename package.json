@@ -13,6 +13,8 @@
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
     "react-stately": "^3.35.0",
+    "source-map-loader": "^5.0.0",
+    "ts-loader": "^9.5.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -40,6 +42,8 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "3"
+    "@types/react": "^19.0.8",
+    "tailwindcss": "3",
+    "typescript": "^5.7.3"
   }
 }
