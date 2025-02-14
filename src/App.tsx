@@ -22,9 +22,9 @@ function App() {
   
   let list = useListData({
     initialItems: [
-      { name: 'Aardvark', id: '0', },
-      { name: 'Kangaroo', id: '1', },
-      { name: 'Snake', id: '2', }
+      { name: 'Aardvark', id: 0, },
+      { name: 'Kangaroo', id: 1, },
+      { name: 'Snake', id: 2, }
     ],
     initialSelectedKeys: ['Kangaroo'],
     getKey: (item) => item.name
@@ -39,7 +39,6 @@ function App() {
     function addAnimal(name: addAnimalFunction) {
       list.append(name);
     }
-
     // something happened during fetch, lets render some nice error screen
     if (hasError) {
       return (

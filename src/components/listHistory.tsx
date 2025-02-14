@@ -3,16 +3,7 @@ import ErrorDisplay from './errorDisplay';
 import { Button, Cell, Label, ListBox, ListBoxItem, Row, Text } from 'react-aria-components';
 import { MyComponentProps } from '../types';
 
-//Custom classes declared as variable string values.
-const containerClass = 'flex flex-wrap p-1 px-4';
-const labelClass = '  p-1 px-4';
-const listBoxClass = 'bg-black text-slate-950 rounded-md';
-const listBoxItemsClass = '  p-2';
-const buttonClass = '  p-2';
-
-
 const ListHistory: React.FC<MyComponentProps> = ({ ListData, onPressFunc }) => {
-    console.log(ListData);
     if (!ListData) {
         return (
             <>

@@ -1,11 +1,9 @@
 import React from 'react';
 import ErrorDisplay from './errorDisplay';
-import { Button, Cell, Label, ListBox, ListBoxItem, Row, } from 'react-aria-components';
+import { Button, Label, ListBox, ListBoxItem, } from 'react-aria-components';
 import { MyComponentProps } from '../types';
 
-
 const ListDisplay: React.FC<MyComponentProps> = ({ ListData, onPressFunc }) => {
-    console.log(ListData);
     if (!ListData) {
         return (
             <>
