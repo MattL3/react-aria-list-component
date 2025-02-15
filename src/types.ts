@@ -10,26 +10,16 @@ export interface addAnimalFunction {
     id: number,
 }
 
-export interface formTempMemInterface {
-    name: string,
-    id: string,
-}
-
-export interface MyComponentProps {
+export interface ListInterface {
     ListData: ListData<{name: string, id: number,}>;
     onPressFunc(name: Key): void;
 }
 
-export interface MyComponentPropsAdd {
+export interface ListEditorInterface {
     ListData: ListData<{name: string, id: number,}>;
     onPressFunc(name: addAnimalFunction): void;
 }
 
 export interface MyListData {
     ListData: ListData<{name: string, id: number,}>;
-}
-
-export interface removeAnimalFunction {
-    name: 'string',
-    id: 'string',
 }

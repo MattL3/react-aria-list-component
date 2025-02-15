@@ -1,15 +1,14 @@
 
 import React, { useState } from 'react';
 import ErrorDisplay from './errorDisplay';
-import { Button, Cell, Form, Input, Label, Row, TextField } from 'react-aria-components';
-import { Key, ListData, Selection, useListData } from 'react-stately';
-import { formTempMemInterface } from '../types';
-import { MyComponentProps, MyComponentPropsAdd, MyListData } from '../types';
+import { Button,Form, Input, Label,TextField } from 'react-aria-components';
+import { Key, Selection } from 'react-stately';
+import { ListEditorInterface, MyListData } from '../types';
 
 //Custom presets using tailwind class names across common usages
 
 
-const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
+const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
     const [count, setCount] = useState(3);
  
     let formTempMem: MyListData = {
@@ -97,10 +96,10 @@ const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
         )
     } else {
         return (
-            <div className={'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-1/3 max-w-1/3'}>
+            <div className={'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col flex-grow  basis-2/3 max-w-md'}>
                 <Label className={'m-1'} aria-label={'Editor list title'}>Edit list</Label>
                 <Form
-                    className="bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col "
+                    className='bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink'
                     aria-label={'Editor Form'}
                     onInvalid={(e) => {
                         e.preventDefault();
@@ -117,7 +116,7 @@ const ListEditor: React.FC<MyComponentPropsAdd> = ({ListData, onPressFunc}) => {
                     </TextField>
                     </div>
 
-                    <Button className={'bg-blue-400 rounded-lg px-3 my-2'}  type="submit"  aria-label={'Editor form submit button'}>
+                    <Button className={'bg-blue-400 rounded-lg px-3 my-2'}  type='submit'  aria-label={'Editor form submit button'}>
                         Submit
                     </Button>
                 </Form>

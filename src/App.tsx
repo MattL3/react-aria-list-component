@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { ListData, useListData } from 'react-stately';
+import { useListData } from 'react-stately';
 import './App.css';
 import ErrorDisplay from './components/errorDisplay';
 import ListDisplay from './components/listDisplay';
 import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
-import { addAnimalFunction, Key, formTempMemInterface, MyComponentProps, MyListData } from './types';
-
-const AppClass = 'bg-';
+import { addAnimalFunction, Key } from './types';
 
 function App() {
   const [hasError, setHasError] = useState(false);
@@ -18,7 +16,7 @@ function App() {
       // oh no! the fetch failed, we have no data to render!
       setHasError(true);
     }
-  })
+  }, [])
 
   let animals =   [
     { name: 'Aardvark', id: 0, },
@@ -52,7 +50,7 @@ function App() {
     if (hasError) {
       return (
         <>
-          <div className={'bg-gray-600'}>
+          <div className={'bg-gray-600 flex justify-center'}>
             <ErrorDisplay />
           </div>
         </>
@@ -60,7 +58,7 @@ function App() {
     } else {
       return (
         <>
-          <div className={'bg-gray-600 text-violet-200 flex'}>
+          <div className={'bg-gray-600 text-violet-200 flex flex-wrap justify-center'}>
             <ListDisplay ListData={list} onPressFunc={removeAnimal} />
             <ListHistory ListData={history} onPressFunc={removeAnimal} />
             <ListEditor ListData={list} onPressFunc={addAnimal} />
