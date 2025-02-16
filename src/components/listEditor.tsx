@@ -10,13 +10,15 @@ import { ListEditorInterface, MyListData } from '../types';
 
 const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
     const [count, setCount] = useState(3);
+    const [bool, setBool] = useState(false);
  
     let formTempMem: MyListData = {
         ListData: {
             items: [
                 {
                     name: '',
-                    id: count
+                    id: count,
+                    isDeleted: bool
                 }
             ],
             selectedKeys: 'all',
@@ -27,7 +29,7 @@ const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
             setFilterText: function (filterText: string): void {
                 throw new Error('Function not implemented.');
             },
-            getItem: function (key: Key): { name: string; id: number; } | undefined {
+            getItem: function (key: Key): { name: string; id: number; isDeleted: boolean; } | undefined {
                 throw new Error('Function not implemented.');
             },
             insert: function (index: number, ...values: { name: string; id: number; }[]): void {
@@ -82,9 +84,13 @@ const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
     };
 
     const handleFormSubmit = () => {
-        onPressFunc(formTempMem.ListData.items[0]);
-        let tempCount = count +1;
-        setCount(tempCount);
+        if(formTempMem.ListData.items[0].name != ''){
+            onPressFunc(formTempMem.ListData.items[0]);
+            let tempCount = count +1;
+            setCount(tempCount);
+            console.log('ListData');
+            console.log(ListData)
+        }
 
     }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import ErrorDisplay from './errorDisplay';
 import { Label, ListBox, ListBoxItem } from 'react-aria-components';
-import { ListInterface } from '../types';
+import { MyListData } from '../types';
 
-const ListHistory: React.FC<ListInterface> = ({ ListData, onPressFunc }) => {
+const ListHistory: React.FC<MyListData> = ({ ListData }) => {
     if (!ListData) {
         return (
             <>
@@ -12,7 +12,7 @@ const ListHistory: React.FC<ListInterface> = ({ ListData, onPressFunc }) => {
         )
     } else {
         return (
-            <div className={'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-1/3 max-w-lg'}>
+            <div className={'bg-slate-400  src/components/listEditor.tsxtext-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-1/3 max-w-lg'}>
                 <Label className={'m-1'} aria-label={'History list title'}>History List</Label>
                 <ListBox className={'bg-slate-500 rounded-xl my-2 p-2 text-sky-700 flex flex-nowrap flex-col'}
                     items={ListData.items}

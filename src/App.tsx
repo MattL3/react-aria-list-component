@@ -7,21 +7,16 @@ import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 import { addAnimalFunction, Key } from './types';
 
+const errorWrapperClass:string = 'bg-gray-600 flex justify-center';
+const appWrapperClass:string = 'bg-gray-600 text-violet-200 flex flex-wrap justify-center';
+
 function App() {
   const [hasError, setHasError] = useState(false);
-  useEffect(() => {
-    try {
-      // do something like fetching some data
-    } catch (e) {
-      // oh no! the fetch failed, we have no data to render!
-      setHasError(true);
-    }
-  }, [])
 
   let animals =   [
-    { name: 'Aardvark', id: 0, },
-    { name: 'Kangaroo', id: 1, },
-    { name: 'Snake', id: 2, }
+    { name: 'Aardvark', id: 0, isDeleted: false },
+    { name: 'Kangaroo', id: 1, isDeleted: false },
+    { name: 'Snake', id: 2, isDeleted: false }
   ];
   
   let list = useListData({
@@ -30,27 +25,27 @@ function App() {
     getKey: (item) => item.name
   });
 
-  let history = useListData({
-    initialItems: animals,
-    initialSelectedKeys: ['Kangaroo'],
-    getKey: (item) => item.name
-  });
-
-  if (!list || !history) {
+  if (!list) {
     setHasError(true);
   } else {
-    function removeAnimal(name: Key) {
-      list.remove(name);
+    // function removeAnimal(name: Key) {
+    //   list.remove(name);
+    // }
+    function updateAnimal(name: Key,  newValue: {
+      name: string;
+      id: number;
+      isDeleted: boolean;
+    }) {
+      list.update(name, {name: newValue.name, id: newValue.id, isDeleted: true});
     }
     function addAnimal(name: addAnimalFunction) {
       list.append(name);
-      history.append(name);
     }
     // something happened during fetch, lets render some nice error screen
     if (hasError) {
       return (
         <>
-          <div className={'bg-gray-600 flex justify-center'}>
+          <div className={errorWrapperClass}>
             <ErrorDisplay />
           </div>
         </>
@@ -58,9 +53,9 @@ function App() {
     } else {
       return (
         <>
-          <div className={'bg-gray-600 text-violet-200 flex flex-wrap justify-center'}>
-            <ListDisplay ListData={list} onPressFunc={removeAnimal} />
-            <ListHistory ListData={history} onPressFunc={removeAnimal} />
+          <div className={appWrapperClass}>
+            <ListDisplay ListData={list} onPressFunc={updateAnimal} />
+            <ListHistory ListData={list}/>
             <ListEditor ListData={list} onPressFunc={addAnimal} />
           </div>
         </>
