@@ -18,7 +18,7 @@ export interface ListDisplayInterface {
 
 export interface ListEditorInterface {
     ListData: ListData<{ name: string, id: number, isDeleted: boolean }>;
-    onPressFunc(name: addAnimalFunction): void;
+    addAnimal(name: addAnimalFunction): void;
 }
 
 export interface MyListData {

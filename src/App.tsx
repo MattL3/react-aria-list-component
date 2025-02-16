@@ -58,7 +58,7 @@ function App() {
           <div className={appWrapperClass}>
             <ListDisplay ListData={list} onPressFunc={updateAnimal} />
             <ListHistory ListData={list}/>
-            <ListEditor ListData={list} onPressFunc={addAnimal} />
+            <ListEditor ListData={list} addAnimal={addAnimal} />
           </div>
         </>
       )

@@ -22,8 +22,8 @@ const ListDisplay: React.FC<ListDisplayInterface> = ({ ListData, onPressFunc }) 
             }
         });
 
-        console.log('listDisplayBuffer')
-        console.log(listDisplayBuffer)
+        // console.log('listDisplayBuffer')
+        // console.log(listDisplayBuffer)
     
     if (!ListData) {
         return (
