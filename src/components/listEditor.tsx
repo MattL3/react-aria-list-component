@@ -5,7 +5,14 @@ import { Button,Form, Input, Label,TextField } from 'react-aria-components';
 import { Key, Selection } from 'react-stately';
 import { ListEditorInterface, MyListData } from '../types';
 
-//Custom presets using tailwind class names across common usages
+// const wrapperClass:string = ;
+const wrapperClass:string = 'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col flex-grow  basis-2/3 max-w-md';
+const editFormClass:string = 'bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink';
+const editFormTextFieldClass:string = 'flex flex-nowrap flex-col rounded-md';
+const editFormTextFieldLabelClass:string = 'text';
+const editFormTextFieldInputClass:string = 'rounded-md';
+const editFormSubmitButtonClass:string = 'bg-blue-400 text-sky-950 rounded-lg px-3 my-2';
+// const wrapperClass:string = ;
 
 
 const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
@@ -102,10 +109,10 @@ const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
         )
     } else {
         return (
-            <div className={'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col flex-grow  basis-2/3 max-w-md'}>
+            <div className={wrapperClass}>
                 <Label className={'m-1'} aria-label={'Editor list title'}>Edit list</Label>
                 <Form
-                    className='bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink'
+                    className={editFormClass}
                     aria-label={'Editor Form'}
                     onInvalid={(e) => {
                         e.preventDefault();
@@ -116,13 +123,13 @@ const ListEditor: React.FC<ListEditorInterface> = ({ListData, onPressFunc}) => {
                     }}
                 >
                     <div>
-                    <TextField className={'flex flex-nowrap flex-col rounded-md'} aria-label={'text field: first name'}>
-                        <Label className={'text'} aria-label={'text field: first name label element'}>First name</Label>
-                        <Input className={'rounded-md'}  aria-label={'Input field: enter Name here'} onChange={handleInputChange} />
+                    <TextField className={editFormTextFieldClass} aria-label={'text field: first name'}>
+                        <Label className={editFormTextFieldLabelClass} aria-label={'text field: first name label element'}>First name</Label>
+                        <Input className={editFormTextFieldInputClass}  aria-label={'Input field: enter Name here'} onChange={handleInputChange} />
                     </TextField>
                     </div>
 
-                    <Button className={'bg-blue-400 rounded-lg px-3 my-2'}  type='submit'  aria-label={'Editor form submit button'}>
+                    <Button className={editFormSubmitButtonClass}  type='submit'  aria-label={'Editor form submit button'}>
                         Submit
                     </Button>
                 </Form>

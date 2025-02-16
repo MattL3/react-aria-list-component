@@ -7,8 +7,10 @@ import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
 import { addAnimalFunction, Key } from './types';
 
+// const wrapperClass:string = ;
 const errorWrapperClass:string = 'bg-gray-600 flex justify-center';
 const appWrapperClass:string = 'bg-gray-600 text-violet-200 flex flex-wrap justify-center';
+// const wrapperClass:string = ;
 
 function App() {
   const [hasError, setHasError] = useState(false);

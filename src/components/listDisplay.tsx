@@ -3,12 +3,14 @@ import ErrorDisplay from './errorDisplay';
 import { Button, Label, ListBox, ListBoxItem, Selection, } from 'react-aria-components';
 import { Key, listDisplayBufferInterface, ListDisplayInterface, MyListData } from '../types';
 
+// const wrapperClass:string = ;
 const wrapperClass:string = 'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-2/3 max-w-xl';
 const labelClass:string = 'm-1';
 const listBoxClass:string = 'bg-slate-500 rounded-xl my-2 p-2 text-sky-700 flex flex-nowrap flex-col';
 const listBoxItemClass:string = 'bg-lime-50 m-1 p-2 rounded-md flex flex-nowrap justify-between max-w-30';
 const listBoxItemLabelClass:string = 'm-1 p-2 rounded-md';
 const listBoxItemButtonClass:string = 'bg-lime-200 my-1 p-2 rounded-md';
+// const wrapperClass:string = ;
 
 const ListDisplay: React.FC<ListDisplayInterface> = ({ ListData, onPressFunc }) => {
 
