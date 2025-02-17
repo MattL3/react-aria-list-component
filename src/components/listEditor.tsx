@@ -18,15 +18,8 @@ const editFormSubmitButtonClass: string = 'bg-blue-400 text-sky-950 rounded-lg p
 
 const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
     const [name, setName] = useState('');
-    const [count, setCount] = useState(3);
+    const [count, setCount] = useState(0);
     const [bool, setBool] = useState(false);
-
-    useEffect(() => {
-        setName(name);
-        setCount(count);
-    }, [name, count])
-
-
     const [editValueBuffer, setEditValueBuffer] = useState({
         items: [
             {
@@ -37,22 +30,10 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
         ],
     });
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        setName(value);
-        setEditValueBuffer({ items: [{ name: value, id: count, isDeleted: false }] });
-
-
-    };
-
-    const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        setEditValueBuffer({ items: [{ name: name, id: count, isDeleted: false }] })
-        addAnimal(editValueBuffer.items[0]);
-        let tempCount = count + 1;
-        setCount(tempCount);
-
-    }
-
+    useEffect(() => {
+        setName(name);
+        setCount(count);
+    }, [name, count]);
 
     if (!ListData) {
         return (
@@ -61,6 +42,34 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
             </>
         )
     } else {
+
+        if (count == 0) {
+            setCount(ListData.items.length);
+        }
+
+        const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            const value = event.target.value;
+            setEditValueBuffer({ items: [{ name: value, id: count, isDeleted: false }] });
+            setName(value);
+            console.log('ListData');
+            console.log(ListData);
+
+
+        };
+
+        const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+            let placeholderCount = ListData.items.length +1;
+            setEditValueBuffer({ items: [{ name: name, id: placeholderCount, isDeleted: false }] })
+            addAnimal(editValueBuffer.items[0]);
+            let tempCount = count + 1;
+            setCount(tempCount);
+            setName('');
+            console.log('ListData');
+            console.log(ListData);
+
+        }
+
+
         return (
             <div className={wrapperClass}>
                 <Label className={editorFormLabelClass} aria-label={'Editor list title'}>Edit list</Label>

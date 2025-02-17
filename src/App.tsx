@@ -24,7 +24,7 @@ function App() {
   let list = useListData({
     initialItems: animals,
     initialSelectedKeys: ['Kangaroo'],
-    getKey: (item) => item.name
+    getKey: (item) => item.id
   });
 
   if (!list) {
@@ -33,15 +33,15 @@ function App() {
     // function removeAnimal(name: Key) {
     //   list.remove(name);
     // }
-    function updateAnimal(name: Key,  newValue: {
+    function updateAnimal(id: Key,  newValue: {
       name: string;
       id: number;
       isDeleted: boolean;
     }) {
-      list.update(name, {name: newValue.name, id: newValue.id, isDeleted: true});
+      list.update(id, {name: newValue.name, id: newValue.id, isDeleted: true});
     }
-    function addAnimal(name: addAnimalFunction) {
-      list.append(name);
+    function addAnimal(id: addAnimalFunction) {
+      list.append(id);
     }
     // something happened during fetch, lets render some nice error screen
     if (hasError) {

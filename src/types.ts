@@ -18,7 +18,7 @@ export interface ListDisplayInterface {
 
 export interface ListEditorInterface {
     ListData: ListData<{ name: string, id: number, isDeleted: boolean }>;
-    addAnimal(name: addAnimalFunction): void;
+    addAnimal(id: addAnimalFunction): void;
 }
 
 export interface MyListData {
