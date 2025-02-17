@@ -40,7 +40,7 @@ const ListDisplay: React.FC<ListDisplayInterface> = ({ ListData, onPressFunc }) 
                     aria-label={'History of list items added and removed'}
                     selectedKeys={ListData.selectedKeys}
                     onSelectionChange={ListData.setSelectedKeys}>
-                    {item => <ListBoxItem className={listBoxItemClass} key={item.name} aria-label={item.name + ' label'} textValue={item.name}><Label className={listBoxItemLabelClass}>{item.name}</Label><Button className={listBoxItemButtonClass}  aria-label={item.name + ' remove button'} onPress={() => { onPressFunc(item.name, item) }}>delete</Button></ListBoxItem>}
+                    {item => <ListBoxItem className={listBoxItemClass} key={item.name} aria-label={item.name + ' label'} textValue={item.name}><Label className={listBoxItemLabelClass}>{item.name}</Label><Button className={listBoxItemButtonClass}  aria-label={item.name + ' remove button'} onPress={() => { onPressFunc(item.id, item) }}>delete</Button></ListBoxItem>}
                 </ListBox>
             </div>
         )
