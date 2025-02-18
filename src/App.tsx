@@ -52,6 +52,8 @@ function App() {
       });
     }
 
+    console.log('list');
+
     //adds user input animal to the state, main display, and history
     function addAnimal(id: addAnimalFunction) {
       list.append(id);
@@ -71,6 +73,7 @@ function App() {
       return (
         <>
           <div className={appWrapperClass}>
+            test
             <ListDisplay ListData={list} onPressFunc={updateAnimal} />
             <ListHistory ListData={list} />
             <ListEditor ListData={list} addAnimal={addAnimal} />
