@@ -6,15 +6,16 @@ import { ListEditorInterface } from '../types';
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
 const wrapperClass: string =
-  'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col flex-grow  basis-2/3 max-w-md';
-const editorFormLabelClass: string = 'm-1';
+  'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-nowrap flex-col flex-grow  basis-2/3 max-w-md';
+const editorFormLabelClass: string = 'm-1 flex-nowrap';
 const editFormClass: string =
   'bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink';
 const editFormTextFieldClass: string = 'flex flex-nowrap flex-col rounded-md';
-const editFormTextFieldLabelClass: string = 'text';
-const editFormTextFieldInputClass: string = 'rounded-md';
+const editFormTextFieldLabelClass: string = 'text ';
+const editFormTextFieldInputClass: string = 'rounded-md flex bg-amber-50 px-2';
 const editFormSubmitButtonClass: string =
   'bg-blue-400 text-sky-950 rounded-lg px-3 my-2';
+
 // const wrapperClass:string = ;
 
 //Functional component meant to allow users to input their own items which are then added to the state and displayed by other components.

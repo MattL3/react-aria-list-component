@@ -11,7 +11,8 @@ import { AppErrorType, addAnimalFunction, Key } from './types';
 // const wrapperClass:string = ;
 const errorWrapperClass: string = 'bg-gray-600 flex justify-center';
 const appWrapperClass: string =
-  'bg-gray-600 text-violet-200 flex flex-wrap justify-center';
+  'bg-gray-600 text-violet-200 flex flex-wrap justify-center flex-col';
+const listsWrapperClass: string = 'flex flex-nowrap justify-center flex-row';
 // const wrapperClass:string = ;
 
 const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
@@ -72,8 +73,10 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
       return (
         <>
           <div className={appWrapperClass}>
-            <ListDisplay ListData={list} onPressFunc={updateAnimal} />
-            <ListHistory ListData={list} />
+            <div className={listsWrapperClass}>
+              <ListDisplay ListData={list} onPressFunc={updateAnimal} />
+              <ListHistory ListData={list} />
+            </div>
             <ListEditor ListData={list} addAnimal={addAnimal} />
           </div>
         </>
