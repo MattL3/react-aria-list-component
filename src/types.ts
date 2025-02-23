@@ -29,6 +29,10 @@ export interface ListEditorInterface {
 export interface MyListData {
   ListData: ListData<{ name: string; id: number; isDeleted: boolean }>;
 }
+//Interface for local version of listData component
+export interface AppErrorType {
+  hasErrorTest: boolean;
+}
 
 //Interface for component buffer version of state
 export interface listDisplayBufferInterface {
@@ -36,4 +40,3 @@ export interface listDisplayBufferInterface {
   id: number;
   isDeleted: boolean;
 }
-[];

@@ -40,7 +40,7 @@ const ErrorDisplay = () => {
         >
           <Row className={rowClass} aria-label={'error display row'}>
             <Cell className={cellClass} aria-label={'error display cell'}>
-              sorry, an error has ocurred.
+              sorry, an error has occurred.
             </Cell>
           </Row>
         </TableBody>

@@ -1,5 +1,5 @@
+import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import ListHistory from '../listHistory';
 import { MyListData, Key } from '../../types';
 import { Selection } from 'react-stately';
@@ -80,8 +80,17 @@ function testFunc() {
   console.log('pressed');
 }
 
-test('renders list display element', () => {
-  render(<ListHistory ListData={localListData.ListData} />);
+test('renders list history element', () => {
+  act(() => {
+    <ListHistory ListData={localListData.ListData} />;
+  });
   const linkElement = screen.getByText('Aardvark');
+  expect(linkElement).toBeInTheDocument();
+});
+test('renders list history error case', () => {
+  act(() => {
+    <ListHistory ListData={localListData.ListData} />;
+  });
+  const linkElement = screen.getByText('Error');
   expect(linkElement).toBeInTheDocument();
 });

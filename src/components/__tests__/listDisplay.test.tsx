@@ -1,5 +1,5 @@
+import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import ListDisplay from '../listDisplay';
 import { MyListData, Key } from '../../types';
 import { Selection } from 'react-stately';
@@ -81,9 +81,9 @@ function testFunc() {
 }
 
 test('renders list display element', () => {
-  render(
-    <ListDisplay ListData={localListData.ListData} onPressFunc={testFunc} />
-  );
+  act(() => {
+    <ListDisplay ListData={localListData.ListData} onPressFunc={testFunc} />;
+  });
   const linkElement = screen.getByText('Aardvark');
   expect(linkElement).toBeInTheDocument();
 });

@@ -5,7 +5,7 @@ import ErrorDisplay from './components/errorDisplay';
 import ListDisplay from './components/listDisplay';
 import ListEditor from './components/listEditor';
 import ListHistory from './components/listHistory';
-import { addAnimalFunction, Key } from './types';
+import { AppErrorType, addAnimalFunction, Key } from './types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
@@ -14,7 +14,7 @@ const appWrapperClass: string =
   'bg-gray-600 text-violet-200 flex flex-wrap justify-center';
 // const wrapperClass:string = ;
 
-function App() {
+const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
   //basic error state
   const [hasError, setHasError] = useState(false);
 
@@ -52,18 +52,17 @@ function App() {
       });
     }
 
-    console.log('list');
-
     //adds user input animal to the state, main display, and history
     function addAnimal(id: addAnimalFunction) {
       list.append(id);
     }
 
-    if (hasError) {
+    if (hasError || hasErrorTest == true) {
       // error has occurred, render this instead of expected components
       return (
         <>
           <div className={errorWrapperClass}>
+            error
             <ErrorDisplay />
           </div>
         </>
@@ -82,6 +81,6 @@ function App() {
       );
     }
   }
-}
+};
 
 export default App;

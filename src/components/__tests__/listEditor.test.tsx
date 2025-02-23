@@ -1,5 +1,5 @@
+import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import ListEditor from '../listEditor';
 import { MyListData, Key } from '../../types';
 import { Selection } from 'react-stately';
@@ -81,7 +81,9 @@ function testFunc() {
 }
 
 test('renders list display element', () => {
-  render(<ListEditor ListData={localListData.ListData} addAnimal={testFunc} />);
+  act(() => {
+    <ListEditor ListData={localListData.ListData} addAnimal={testFunc} />;
+  });
   const linkElement = screen.getByText('Submit');
   expect(linkElement).toBeInTheDocument();
 });
