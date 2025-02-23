@@ -36,8 +36,6 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
   useEffect(() => {
     setName(name);
     setCount(count);
-    console.log('ListData');
-    console.log(ListData);
   }, [name, count]);
 
   //check if any error occurs with ListData prop

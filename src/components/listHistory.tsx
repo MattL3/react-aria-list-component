@@ -18,7 +18,7 @@ const listBoxItemLabelClass: string = 'm-1 p-2 rounded-md';
 //Functional component meant to render list of items from state, with ability to see all items in the list in spite of any that were removed in the main display.
 const ListHistory: React.FC<MyListData> = ({ ListData }) => {
   //check if any error occurs with ListData prop
-  if (!ListData) {
+  if (ListData == undefined) {
     return (
       <>
         <ErrorDisplay />
