@@ -21,14 +21,14 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
   const [hasError, setHasError] = useState(false);
 
   //initial state of animal collection
-  let animals = [
+  const animals = [
     { name: 'Aardvark', id: 0, isDeleted: false },
     { name: 'Kangaroo', id: 1, isDeleted: false },
     { name: 'Snake', id: 2, isDeleted: false },
   ];
 
   //initial state of animal collection being set in useListData
-  let list = useListData({
+  const list = useListData({
     initialItems: animals,
     initialSelectedKeys: ['Kangaroo'],
     getKey: (item) => item.id,
@@ -75,6 +75,7 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
         <>
           <div className={appWrapperClass}>
             <div className={listsWrapperClass}>
+              test
               <ListDisplay ListData={list} onPressFunc={updateAnimal} />
               <ListHistory ListData={list} />
             </div>

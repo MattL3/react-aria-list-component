@@ -30,7 +30,7 @@ const ListDisplay: React.FC<ListDisplayInterface> = ({
     );
   } else {
     //local buffer of state
-    let listDisplayBuffer: listDisplayBufferInterface[] = [];
+    const listDisplayBuffer: listDisplayBufferInterface[] = [];
 
     //loop through ListData state, only add items to local buffer where isDeleted == false
     ListData.items.forEach((element) => {

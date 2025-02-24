@@ -64,7 +64,7 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
     //Append new user created object to global state item.
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       //Set placeholder count value to assign to local state item.
-      let tempCount = count + 1;
+      const tempCount = count + 1;
       setEditValueBuffer({
         items: [{ name: name, id: tempCount, isDeleted: false }],
       });
