@@ -6,12 +6,12 @@ import { MyListData } from '../types';
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
 const wrapperClass: string =
-  'bg-slate-400  src/components/listEditor.tsxtext-sky-200 rounded-lg px-4 my-2 flex flex-no-wrap flex-col basis-1/3 md:basis-1/3 max-w-lg';
+  'bg-slate-400  src/components/listEditor.tsxtext-sky-200 rounded-lg px-4 m-2 flex flex-no-wrap flex-col w-2/5 sm:w-1/3 max-w-96';
 const historyListLabelClass: string = 'm-1';
 const listBoxClass: string =
   'bg-slate-500 rounded-xl my-2 p-2 text-sky-700 flex flex-nowrap flex-col';
 const listBoxItemClass: string = 'bg-lime-50 m-1 p-2 rounded-md flex';
-const listBoxItemLabelClass: string = 'm-1 p-2 rounded-md';
+const listBoxItemLabelClass: string = 'm-1 p-2 rounded-md overflow-auto';
 // const wrapperClass:string = ;
 
 //Functional component meant to render list of items from state, with ability to see all items in the list in spite of any that were removed in the main display.

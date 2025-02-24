@@ -6,7 +6,7 @@ import { ListEditorInterface } from '../types';
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
 const wrapperClass: string =
-  'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-nowrap flex-col flex-grow  basis-2/3 max-w-md';
+  'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-nowrap flex-col flex-grow w-full sm:w-1/3 duration-300 max-w-auto';
 const editorFormLabelClass: string = 'm-1 flex-nowrap';
 const editFormClass: string =
   'bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink';

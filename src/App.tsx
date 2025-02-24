@@ -11,8 +11,9 @@ import { AppErrorType, addAnimalFunction, Key } from './types';
 // const wrapperClass:string = ;
 const errorWrapperClass: string = 'bg-gray-600 flex justify-center';
 const appWrapperClass: string =
-  'bg-gray-600 text-violet-200 flex flex-wrap justify-center flex-col';
-const listsWrapperClass: string = 'flex flex-nowrap justify-center flex-row';
+  'bg-gray-600 text-violet-200 flex flex-wrap justify-center flex-col items-center';
+const listsWrapperClass: string =
+  'w-full flex flex-nowrap justify-center flex-row';
 // const wrapperClass:string = ;
 
 const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
