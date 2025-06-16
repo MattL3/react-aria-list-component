@@ -2,95 +2,37 @@ import React, { useState } from 'react';
 import { useListData } from 'react-stately';
 import './App.css';
 import ErrorDisplay from './components/errorDisplay';
-import ListDisplay from './components/listDisplay';
-import ListEditor from './components/listEditor';
-import ListHistory from './components/listHistory';
+import ReactAriaComponent from './components/ReactAriaComponent/ReactAriaComponent';
 import { AppErrorType, addAnimalFunction, Key } from './types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
 const errorWrapperFragment: string =
   'errorWrapperFragment' + ' ' + 'bg-gray-600' + ' ' + 'flex justify-center';
-const appWrapperFragment: string =
-  'appWrapperFragment' +
-  ' ' +
-  'bg-gray-600 ' +
-  ' ' +
-  'flex flex-wrap justify-center flex-col items-center';
-const listsWrapperFragment: string =
-  'listsWrapperFragment' +
-  ' ' +
-  'w-full' +
-  ' ' +
-  'flex flex-nowrap justify-center flex-row';
+
 // const wrapperClass:string = ;
 
 const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
   //basic error state
   const [hasError, setHasError] = useState(false);
 
-  //initial state of animal collection
-  let animals = [
-    { name: 'Aardvark', id: 0, isDeleted: false },
-    { name: 'Kangaroo', id: 1, isDeleted: false },
-    { name: 'Snake', id: 2, isDeleted: false },
-  ];
-
-  //initial state of animal collection being set in useListData
-  let list = useListData({
-    initialItems: animals,
-    initialSelectedKeys: ['Kangaroo'],
-    getKey: (item) => item.id,
-  });
-
   //check if any error occurs with useListData
-  if (!list) {
-    setHasError(true);
+  if (hasError || hasErrorTest == true) {
+    // error has occurred, render this instead of expected components
+    return (
+      <>
+        <div className={errorWrapperFragment}>
+          <ErrorDisplay />
+        </div>
+      </>
+    );
   } else {
-    //updates isDeleted value of entry, simulating deletion from the state on the front end while still allowing other components to make use of the full and accurate data e.g. history component. applicable for moderated shared spaces including wikis and forms.
-    function updateAnimal(
-      id: Key,
-      newValue: {
-        name: string;
-        id: number;
-        isDeleted: boolean;
-      }
-    ) {
-      list.update(id, {
-        name: newValue.name,
-        id: newValue.id,
-        isDeleted: true,
-      });
-    }
-
-    //adds user input animal to the state, main display, and history
-    function addAnimal(id: addAnimalFunction) {
-      list.append(id);
-    }
-
-    if (hasError || hasErrorTest == true) {
-      // error has occurred, render this instead of expected components
-      return (
-        <>
-          <div className={errorWrapperFragment}>
-            <ErrorDisplay />
-          </div>
-        </>
-      );
-    } else {
-      // list is fine, render expected components
-      return (
-        <>
-          <div className={appWrapperFragment}>
-            <div className={listsWrapperFragment}>
-              <ListDisplay ListData={list} onPressFunc={updateAnimal} />
-              <ListHistory ListData={list} />
-            </div>
-            <ListEditor ListData={list} addAnimal={addAnimal} />
-          </div>
-        </>
-      );
-    }
+    // list is fine, render expected components
+    return (
+      <>
+        <ReactAriaComponent />
+      </>
+    );
   }
 };
 

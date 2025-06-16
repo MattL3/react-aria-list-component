@@ -1,7 +1,7 @@
 import React from 'react';
-import ErrorDisplay from './errorDisplay';
+import ErrorDisplay from '../errorDisplay';
 import { Button, Label, ListBox, ListBoxItem } from 'react-aria-components';
-import { listDisplayBufferInterface, ListDisplayInterface } from '../types';
+import { listDisplayBufferInterface, ListDisplayInterface } from '../../types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;

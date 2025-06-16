@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ErrorDisplay from './errorDisplay';
+import ErrorDisplay from '../errorDisplay';
 import { Button, Form, Input, Label, TextField } from 'react-aria-components';
-import { ListEditorInterface } from '../types';
+import { ListEditorInterface } from '../../types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;

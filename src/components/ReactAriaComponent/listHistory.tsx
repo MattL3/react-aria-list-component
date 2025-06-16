@@ -1,7 +1,7 @@
 import React from 'react';
-import ErrorDisplay from './errorDisplay';
+import ErrorDisplay from '../errorDisplay';
 import { Label, ListBox, ListBoxItem } from 'react-aria-components';
-import { MyListData } from '../types';
+import { MyListData } from '../../types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperFragment:string = ;
