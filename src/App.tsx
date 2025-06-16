@@ -14,7 +14,7 @@ const errorWrapperFragment: string =
 const appWrapperFragment: string =
   'appWrapperFragment' +
   ' ' +
-  'bg-gray-600 text-violet-200' +
+  'bg-gray-600 ' +
   ' ' +
   'flex flex-wrap justify-center flex-col items-center';
 const listsWrapperFragment: string =
@@ -73,7 +73,6 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
       return (
         <>
           <div className={errorWrapperFragment}>
-            error
             <ErrorDisplay />
           </div>
         </>

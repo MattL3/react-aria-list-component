@@ -56,10 +56,21 @@ const editFormTextFieldInputFragment: string =
 //
 
 //
+const editFormSubmitButtonEnabledFragment: string =
+  'editFormSubmitButtonEnabledFragment' +
+  ' ' +
+  'bg-blue-400 text-sky-950 rounded-lg' +
+  ' ' +
+  'px-3 my-2';
+//
+
+//
 const editFormSubmitButtonFragment: string =
   'editFormTextFieldLabelFragment' +
   ' ' +
   'bg-blue-400 text-sky-950 rounded-lg' +
+  ' ' +
+  'opacity-50' +
   ' ' +
   'px-3 my-2';
 //
@@ -109,17 +120,20 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
 
     //Append new user created object to global state item.
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      //Set placeholder count value to assign to local state item.
-      let tempCount = count + 1;
-      setEditValueBuffer({
-        items: [{ name: name, id: tempCount, isDeleted: false }],
-      });
-      //add new user created object to global state item with the passed function
-      addAnimal(editValueBuffer.items[0]);
-      //set new id to local state
-      setCount(tempCount);
-      //clear user input
-      setName('');
+      if (name == '') {
+      } else {
+        //Set placeholder count value to assign to local state item.
+        let tempCount = count + 1;
+        setEditValueBuffer({
+          items: [{ name: name, id: tempCount, isDeleted: false }],
+        });
+        //add new user created object to global state item with the passed function
+        addAnimal(editValueBuffer.items[0]);
+        //set new id to local state
+        setCount(tempCount);
+        //clear user input
+        setName('');
+      }
     };
 
     return (
@@ -162,9 +176,14 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
           </div>
 
           <Button
-            className={editFormSubmitButtonFragment}
+            className={
+              name == ''
+                ? editFormSubmitButtonFragment
+                : editFormSubmitButtonEnabledFragment
+            }
             type='submit'
             aria-label={'Editor form submit button'}
+            isDisabled={name == '' ? true : false}
           >
             Submit
           </Button>
