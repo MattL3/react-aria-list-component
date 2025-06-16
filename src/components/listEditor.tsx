@@ -5,18 +5,64 @@ import { ListEditorInterface } from '../types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
-const wrapperClass: string =
-  'bg-slate-400  text-sky-200 rounded-lg px-4 my-2 flex flex-nowrap flex-col flex-grow w-full sm:w-1/3 duration-300 max-w-auto';
-const editorFormLabelClass: string = 'm-1 flex-nowrap';
-const editFormClass: string =
-  'bg-slate-500 rounded-xl my-2 p-2 flex flex-nowrap flex-col flex-shrink';
-const editFormTextFieldClass: string = 'flex flex-nowrap flex-col rounded-md';
-const editFormTextFieldLabelClass: string = 'text ';
-const editFormTextFieldInputClass: string = 'rounded-md flex bg-amber-50 px-2';
-const editFormSubmitButtonClass: string =
-  'bg-blue-400 text-sky-950 rounded-lg px-3 my-2';
+//
+const wrapperFragment: string =
+  'wrapperFragment' +
+  ' ' +
+  'bg-slate-400 text-sky-200 rounded-lg duration-300' +
+  ' ' +
+  'px-4 my-2' +
+  ' ' +
+  'flex flex-nowrap flex-col flex-grow w-full' +
+  ' ' +
+  'sm:w-1/3 max-w-auto';
+//
 
-// const wrapperClass:string = ;
+//
+const editorFormLabelFragment: string =
+  'editorFormLabelFragment' + ' ' + 'm-1' + ' ' + 'flex-nowrap';
+//
+
+//
+const editFormFragment: string =
+  'editFormFragment' +
+  ' ' +
+  'bg-slate-500 rounded-xl' +
+  ' ' +
+  'my-2 p-2' +
+  ' ' +
+  'flex flex-nowrap flex-col flex-shrink';
+//
+
+//
+const editFormTextFieldFragment: string =
+  'editFormTextFieldFragment' + ' ' + 'flex flex-nowrap flex-col rounded-md';
+//
+
+//
+const editFormTextFieldLabelFragment: string =
+  'editFormTextFieldLabelFragment' + ' ' + 'text ';
+//
+
+//
+const editFormTextFieldInputFragment: string =
+  'editFormTextFieldInputFragment' +
+  ' ' +
+  'rounded-md bg-amber-50 px-2' +
+  ' ' +
+  'px-2' +
+  ' ' +
+  'flex';
+//
+
+//
+const editFormSubmitButtonFragment: string =
+  'editFormTextFieldLabelFragment' +
+  ' ' +
+  'bg-blue-400 text-sky-950 rounded-lg' +
+  ' ' +
+  'px-3 my-2';
+//
 
 //Functional component meant to allow users to input their own items which are then added to the state and displayed by other components.
 const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
@@ -77,15 +123,15 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
     };
 
     return (
-      <div className={wrapperClass}>
+      <div className={wrapperFragment}>
         <Label
-          className={editorFormLabelClass}
+          className={editorFormLabelFragment}
           aria-label={'Editor list title'}
         >
           Edit list
         </Label>
         <Form
-          className={editFormClass}
+          className={editFormFragment}
           aria-label={'Editor Form'}
           onInvalid={(e) => {
             e.preventDefault();
@@ -97,17 +143,17 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
         >
           <div>
             <TextField
-              className={editFormTextFieldClass}
+              className={editFormTextFieldFragment}
               aria-label={'text field: first name'}
             >
               <Label
-                className={editFormTextFieldLabelClass}
+                className={editFormTextFieldLabelFragment}
                 aria-label={'text field: first name label element'}
               >
                 First name
               </Label>
               <Input
-                className={editFormTextFieldInputClass}
+                className={editFormTextFieldInputFragment}
                 aria-label={'Input field: enter Name here'}
                 onChange={(e) => handleChange(e)}
                 value={name}
@@ -116,7 +162,7 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
           </div>
 
           <Button
-            className={editFormSubmitButtonClass}
+            className={editFormSubmitButtonFragment}
             type='submit'
             aria-label={'Editor form submit button'}
           >

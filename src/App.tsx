@@ -9,11 +9,20 @@ import { AppErrorType, addAnimalFunction, Key } from './types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
-const errorWrapperClass: string = 'bg-gray-600 flex justify-center';
-const appWrapperClass: string =
-  'bg-gray-600 text-violet-200 flex flex-wrap justify-center flex-col items-center';
-const listsWrapperClass: string =
-  'w-full flex flex-nowrap justify-center flex-row';
+const errorWrapperFragment: string =
+  'errorWrapperFragment' + ' ' + 'bg-gray-600' + ' ' + 'flex justify-center';
+const appWrapperFragment: string =
+  'appWrapperFragment' +
+  ' ' +
+  'bg-gray-600 text-violet-200' +
+  ' ' +
+  'flex flex-wrap justify-center flex-col items-center';
+const listsWrapperFragment: string =
+  'listsWrapperFragment' +
+  ' ' +
+  'w-full' +
+  ' ' +
+  'flex flex-nowrap justify-center flex-row';
 // const wrapperClass:string = ;
 
 const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
@@ -63,7 +72,7 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
       // error has occurred, render this instead of expected components
       return (
         <>
-          <div className={errorWrapperClass}>
+          <div className={errorWrapperFragment}>
             error
             <ErrorDisplay />
           </div>
@@ -73,8 +82,8 @@ const App: React.FC<AppErrorType> = ({ hasErrorTest }) => {
       // list is fine, render expected components
       return (
         <>
-          <div className={appWrapperClass}>
-            <div className={listsWrapperClass}>
+          <div className={appWrapperFragment}>
+            <div className={listsWrapperFragment}>
               <ListDisplay ListData={list} onPressFunc={updateAnimal} />
               <ListHistory ListData={list} />
             </div>
