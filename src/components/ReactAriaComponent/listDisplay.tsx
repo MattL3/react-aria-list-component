@@ -11,9 +11,11 @@ const wrapperFragment: string =
   ' ' +
   'bg-slate-400  text-sky-200 rounded-lg' +
   ' ' +
-  'w-1/2' +
+  'w-1/1 md:w-1/2' +
   ' ' +
-  'mr-2 px-4' +
+  'mr-0 md:mr-2 mb-2 md:mb-0 ' +
+  ' ' +
+  'p-4' +
   ' ' +
   'flex flex-no-wrap flex-col';
 //
@@ -28,7 +30,9 @@ const listBoxFragment: string =
   ' ' +
   'bg-slate-500 text-sky-700 rounded-xl' +
   ' ' +
-  'my-2 p-2' +
+  'p-2' +
+  ' ' +
+  'max-h-96 overflow-y-scroll' +
   ' ' +
   'flex flex-nowrap flex-col';
 //
@@ -46,7 +50,13 @@ const listBoxItemFragment: string =
 
 //
 const listBoxItemLabelFragment: string =
-  'listBoxItemLabelFragment' + ' ' + 'rounded-md' + ' ' + 'm-1 p-2';
+  'listBoxItemLabelFragment' +
+  ' ' +
+  'rounded-md' +
+  ' ' +
+  'break-all' +
+  ' ' +
+  'm-1 p-2';
 //
 
 //

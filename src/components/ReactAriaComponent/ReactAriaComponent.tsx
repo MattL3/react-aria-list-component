@@ -29,7 +29,11 @@ const listsWrapperFragment: string =
   ' ' +
   'w-full' +
   ' ' +
-  'flex flex-nowrap justify-center flex-row';
+  'mb-4' +
+  ' ' +
+  'flex justify-center flex-col md:flex-row' +
+  ' ' +
+  'flex-wrap md:flex-nowrap';
 //
 
 //
@@ -40,9 +44,9 @@ const wrapperFragment: string =
   ' ' +
   'w-full' +
   ' ' +
-  'm-2' +
+  'p-2' +
   ' ' +
-  'min-w-96 md:max-w-initial lg:max-w-248' +
+  ' md:max-w-initial lg:max-w-248' +
   ' ' +
   'flex flex-wrap justify-center flex-col items-center';
 //

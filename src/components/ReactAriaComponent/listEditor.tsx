@@ -11,7 +11,7 @@ const wrapperFragment: string =
   ' ' +
   'bg-slate-400 text-sky-200 rounded-lg duration-300' +
   ' ' +
-  'my-2 mx-4 px-4' +
+  'p-4' +
   ' ' +
   'flex flex-nowrap flex-col flex-grow w-full' +
   ' ' +
@@ -20,7 +20,7 @@ const wrapperFragment: string =
 
 //
 const editorFormLabelFragment: string =
-  'editorFormLabelFragment' + ' ' + 'm-1' + ' ' + 'flex-nowrap';
+  'editorFormLabelFragment' + ' ' + 'mb-1' + ' ' + 'flex-nowrap';
 //
 
 //
@@ -29,7 +29,7 @@ const editFormFragment: string =
   ' ' +
   'bg-slate-500 rounded-xl' +
   ' ' +
-  'my-2 p-2' +
+  'p-2' +
   ' ' +
   'flex flex-nowrap flex-col flex-shrink';
 //
@@ -44,8 +44,12 @@ const editFormTextFieldFragment: string =
 //
 
 //
+const editFormTextFlexRowFragment: string =
+  'editFormTextFlexRowFragment' + ' ' + 'flex flex-nowrap flex-row';
+//
+//
 const editFormTextFieldLabelFragment: string =
-  'editFormTextFieldLabelFragment' + ' ' + 'text ';
+  'editFormTextFieldLabelFragment' + ' ' + 'm-1' + ' ' + 'text';
 //
 
 //
@@ -56,6 +60,8 @@ const editFormTextFieldInputFragment: string =
   ' ' +
   'px-2' +
   ' ' +
+  'w-4/6' +
+  ' ' +
   'flex';
 //
 
@@ -65,7 +71,9 @@ const editFormSubmitButtonEnabledFragment: string =
   ' ' +
   'bg-blue-400 text-sky-950 rounded-lg' +
   ' ' +
-  'px-3 my-2';
+  'w-2/6' +
+  ' ' +
+  'px-3 mx-2';
 //
 
 //
@@ -76,7 +84,9 @@ const editFormSubmitButtonFragment: string =
   ' ' +
   'opacity-50' +
   ' ' +
-  'px-3 my-2';
+  'w-2/6' +
+  ' ' +
+  'px-3 mx-2';
 //
 
 //Functional component meant to allow users to input their own items which are then added to the state and displayed by other components.
@@ -168,29 +178,30 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
                 className={editFormTextFieldLabelFragment}
                 aria-label={'text field: first name label element'}
               >
-                First name
+                {'Animal name'}
               </Label>
-              <Input
-                className={editFormTextFieldInputFragment}
-                aria-label={'Input field: enter Name here'}
-                onChange={(e) => handleChange(e)}
-                value={name}
-              />
+              <div className={editFormTextFlexRowFragment}>
+                <Input
+                  className={editFormTextFieldInputFragment}
+                  aria-label={'Input field: enter Name here'}
+                  onChange={(e) => handleChange(e)}
+                  value={name}
+                />
+                <Button
+                  className={
+                    name == ''
+                      ? editFormSubmitButtonFragment
+                      : editFormSubmitButtonEnabledFragment
+                  }
+                  type='submit'
+                  aria-label={'Editor form submit button'}
+                  isDisabled={name == '' ? true : false}
+                >
+                  Submit
+                </Button>
+              </div>
             </TextField>
           </div>
-
-          <Button
-            className={
-              name == ''
-                ? editFormSubmitButtonFragment
-                : editFormSubmitButtonEnabledFragment
-            }
-            type='submit'
-            aria-label={'Editor form submit button'}
-            isDisabled={name == '' ? true : false}
-          >
-            Submit
-          </Button>
         </Form>
       </div>
     );
