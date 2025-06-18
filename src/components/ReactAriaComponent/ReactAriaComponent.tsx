@@ -9,20 +9,43 @@ import { motion } from 'motion/react';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
+//
 const errorWrapperFragment: string =
   'errorWrapperFragment' + ' ' + 'bg-gray-600' + ' ' + 'flex justify-center';
+//
+
+//
 const appWrapperFragment: string =
   'appWrapperFragment' +
   ' ' +
   'bg-gray-600 max-w-' +
   ' ' +
   'flex flex-wrap justify-center flex-col items-center';
+//
+
+//
 const listsWrapperFragment: string =
   'listsWrapperFragment' +
   ' ' +
   'w-full' +
   ' ' +
   'flex flex-nowrap justify-center flex-row';
+//
+
+//
+const wrapperFragment: string =
+  'wrapperFragment' +
+  ' ' +
+  'rounded-lg' +
+  ' ' +
+  'w-full' +
+  ' ' +
+  'm-2' +
+  ' ' +
+  'min-w-96 md:max-w-initial lg:max-w-248' +
+  ' ' +
+  'flex flex-wrap justify-center flex-col items-center';
+//
 // const wrapperFragment:string = ;
 
 const ReactAriaComponent = () => {
@@ -82,7 +105,7 @@ const ReactAriaComponent = () => {
       // list is fine, render expected components
       return (
         <>
-          <div className={appWrapperFragment}>
+          <div className={wrapperFragment}>
             <div className={listsWrapperFragment}>
               <ListDisplay ListData={list} onPressFunc={updateAnimal} />
               <ListHistory ListData={list} />

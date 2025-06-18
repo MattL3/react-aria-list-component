@@ -5,18 +5,25 @@ import { MyListData } from '../../types';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperFragment:string = ;
+//
 const wrapperFragment: string =
   'wrapperFragment' +
   ' ' +
   'bg-slate-400 text-sky-200 rounded-lg' +
   ' ' +
-  'px-4 m-2' +
+  'w-1/2' +
   ' ' +
-  'flex flex-no-wrap flex-col' +
+  'ml-2 px-4' +
   ' ' +
-  'w-2/5 sm:w-1/3 max-w-96';
+  'flex flex-no-wrap flex-col';
+//
+
+//
 const historyListLabelFragment: string =
   'historyListLabelFragment' + ' ' + 'm-1';
+//
+
+//
 const listBoxFragment: string =
   'listBoxFragment' +
   ' ' +
@@ -25,6 +32,9 @@ const listBoxFragment: string =
   'my-2 p-2' +
   ' ' +
   'flex flex-nowrap flex-col';
+//
+
+//
 const listBoxItemFragment: string =
   'listBoxItemFragment' +
   ' ' +
@@ -33,6 +43,9 @@ const listBoxItemFragment: string =
   'm-1 p-2' +
   ' ' +
   'flex';
+//
+
+//
 const listBoxItemLabelFragment: string =
   'listBoxItemLabelFragment' +
   ' ' +
@@ -41,6 +54,9 @@ const listBoxItemLabelFragment: string =
   'm-1 p-2' +
   ' ' +
   'overflow-auto';
+//
+
+//
 // const wrapperFragment:string = ;
 
 //Functional component meant to render list of items from state, with ability to see all items in the list in spite of any that were removed in the main display.

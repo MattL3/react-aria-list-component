@@ -11,11 +11,11 @@ const wrapperFragment: string =
   ' ' +
   'bg-slate-400  text-sky-200 rounded-lg' +
   ' ' +
-  'px-4 m-2' +
+  'w-1/2' +
   ' ' +
-  'flex flex-no-wrap flex-col' +
+  'mr-2 px-4' +
   ' ' +
-  'w-4/5 sm:w-2/3 max-w-96';
+  'flex flex-no-wrap flex-col';
 //
 
 //

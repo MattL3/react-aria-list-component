@@ -11,11 +11,11 @@ const wrapperFragment: string =
   ' ' +
   'bg-slate-400 text-sky-200 rounded-lg duration-300' +
   ' ' +
-  'px-4 my-2' +
+  'my-2 mx-4 px-4' +
   ' ' +
   'flex flex-nowrap flex-col flex-grow w-full' +
   ' ' +
-  'sm:w-1/3 max-w-auto';
+  'max-w-auto';
 //
 
 //
@@ -36,7 +36,11 @@ const editFormFragment: string =
 
 //
 const editFormTextFieldFragment: string =
-  'editFormTextFieldFragment' + ' ' + 'flex flex-nowrap flex-col rounded-md';
+  'editFormTextFieldFragment' +
+  ' ' +
+  'rounded-md' +
+  ' ' +
+  'flex flex-nowrap flex-col';
 //
 
 //
@@ -48,7 +52,7 @@ const editFormTextFieldLabelFragment: string =
 const editFormTextFieldInputFragment: string =
   'editFormTextFieldInputFragment' +
   ' ' +
-  'rounded-md bg-amber-50 px-2' +
+  'rounded-md bg-amber-50' +
   ' ' +
   'px-2' +
   ' ' +
