@@ -2,6 +2,7 @@ import React from 'react';
 import ErrorDisplay from '../errorDisplay';
 import { Button, Label, ListBox, ListBoxItem } from 'react-aria-components';
 import { listDisplayBufferInterface, ListDisplayInterface } from '../../types';
+import { Filter } from 'bad-words';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
@@ -9,11 +10,11 @@ import { listDisplayBufferInterface, ListDisplayInterface } from '../../types';
 const wrapperFragment: string =
   'wrapperFragment' +
   ' ' +
-  'bg-slate-400  text-sky-200 rounded-lg' +
+  'bg-slate-400  text-gray-900 rounded-lg' +
   ' ' +
-  'w-1/1 md:w-1/2' +
+  'w-1/1 sm:w-1/2' +
   ' ' +
-  'mr-0 md:mr-2 mb-2 md:mb-0 ' +
+  'mr-0 sm:mr-2 mb-4 sm:mb-0 ' +
   ' ' +
   'p-4' +
   ' ' +
@@ -32,7 +33,7 @@ const listBoxFragment: string =
   ' ' +
   'p-2' +
   ' ' +
-  'max-h-96 overflow-y-scroll' +
+  'max-h-56 sm:max-h-96 overflow-y-scroll' +
   ' ' +
   'flex flex-nowrap flex-col';
 //
@@ -92,6 +93,7 @@ const ListDisplay: React.FC<ListDisplayInterface> = ({
         listDisplayBuffer.push(element);
       }
     });
+    const filter = new Filter();
 
     //return display of all animals where isDeleted == false, including button to delete entries
     return (
@@ -109,11 +111,13 @@ const ListDisplay: React.FC<ListDisplayInterface> = ({
           {(item) => (
             <ListBoxItem
               className={listBoxItemFragment}
-              key={item.name}
-              aria-label={item.name + ' label'}
-              textValue={item.name}
+              key={filter.clean(item.name)}
+              aria-label={filter.clean(item.name) + ' label'}
+              textValue={filter.clean(item.name)}
             >
-              <Label className={listBoxItemLabelFragment}>{item.name}</Label>
+              <Label className={listBoxItemLabelFragment}>
+                {filter.clean(item.name)}
+              </Label>
               <Button
                 className={listBoxItemButtonFragment}
                 aria-label={item.name + ' remove button'}

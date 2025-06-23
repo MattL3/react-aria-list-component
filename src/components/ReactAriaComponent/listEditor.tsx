@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ErrorDisplay from '../errorDisplay';
 import { Button, Form, Input, Label, TextField } from 'react-aria-components';
 import { ListEditorInterface } from '../../types';
+import { Filter } from 'bad-words';
 
 //Collections of tailwind class names declared as constants to keep component renders easily readable.
 // const wrapperClass:string = ;
@@ -9,7 +10,7 @@ import { ListEditorInterface } from '../../types';
 const wrapperFragment: string =
   'wrapperFragment' +
   ' ' +
-  'bg-slate-400 text-sky-200 rounded-lg duration-300' +
+  'bg-slate-400 text-gray-900 rounded-lg duration-300' +
   ' ' +
   'p-4' +
   ' ' +
@@ -131,10 +132,12 @@ const ListEditor: React.FC<ListEditorInterface> = ({ ListData, addAnimal }) => {
       });
       setName(value);
     };
+    const filter = new Filter();
 
     //Append new user created object to global state item.
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      if (name == '') {
+      console.log(event);
+      if (name == '' || filter.isProfane(name)) {
       } else {
         //Set placeholder count value to assign to local state item.
         let tempCount = count + 1;
