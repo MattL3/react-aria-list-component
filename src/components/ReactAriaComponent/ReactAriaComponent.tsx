@@ -88,7 +88,7 @@ const square02 = 'square02';
 
 // const wrapperFragment:string = ;
 
-const ReactAriaComponent = () => {
+const ReactAriaComponent: React.FC = () => {
   //basic error state
   const [hasError, setHasError] = useState(false);
 
@@ -313,4 +313,5 @@ const ProjectContainerComponent: React.FC = () => {
   );
 };
 
-export default Transition(ProjectContainerComponent);
+export default ReactAriaComponent;
+// export default Transition(ProjectContainerComponent);
