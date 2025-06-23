@@ -79,7 +79,7 @@ const wrapperEffectFragment: string = ' z-0 rounded-lg my-2 w-full max-w-auto';
 //
 
 const brandPageColorDark = '#016630';
-const brandPageColorBase = '#ad46ff';
+const brandPageColorBase = '#00c950';
 const brandPageColorLight = '#dcfce7';
 const circle01 = 'circle01';
 const circle02 = 'circle02';
